@@ -30,6 +30,37 @@
  * @param {number} temperature - Current temperature in Celsius
  * @returns {{ season: string, activity: string } | null}
  */
-export function getSeasonActivity(month, temperature) {
-  // Your code here
+export function getSeasonActivity(month, temp) {
+  let obj = {
+    season : "",
+    activity : ""
+  }
+
+  if( month==1 || month == 2 || month == 12 ){
+    obj.season = "Winter";
+    if(temp < 0) obj.activity = "skiing";
+    else if(temp >= 0) obj.activity = "ice skating";
+    else obj = null;
+  }
+   else if( month==3 || month == 4 || month == 5 ){
+    obj.season = "Spring";
+    if(temp > 20) obj.activity = "hiking";
+    else if(temp <= 20) obj.activity = "museum visit";
+    else obj = null;
+  }
+  else if(month == 6 || month == 7 || month == 8 ){
+    obj.season = "Summer";
+    if(temp > 35) obj.activity = "swimming";
+    else if(temp <= 35) obj.activity = "cycling";
+    else obj = null;
+  }
+  else if( month==9 || month == 10 || month == 11){
+    obj.season = "Autumn";
+    if(temp > 15) obj.activity = "nature walk";
+    else if(temp <= 15) obj.activity = "reading at a cafe";
+    else obj = null;
+  }
+ else obj = null;
+
+ return obj;
 }

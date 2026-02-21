@@ -20,6 +20,24 @@
  * @param {boolean} isRaining - Whether it's currently raining
  * @returns {string} The weather advisory message
  */
-export function getWeatherAdvice(temperature, isRaining) {
-  // Your code here
+export function getWeatherAdvice(temp, isRaining) {
+ let message = "";
+
+  if (temp >= 35) message = "Too hot for hiking - stay indoors and hydrate";
+
+  else if (temp >= 25) {
+     if (!isRaining) message = "Great weather for hiking - don't forget sunscreen"; 
+     else message = "Warm but rainy - consider indoor activities"; 
+    }
+  else if (temp >= 15) {
+    if (!isRaining) message = "Perfect hiking weather - enjoy the trails";
+    else message = "Cool and rainy - bring waterproof gear if hiking";
+  }
+  else if (temp >= 5) { 
+    if (!isRaining) message = "Chilly - wear layers for your hike";
+     else message = "Cold and wet - best to stay indoors"; 
+    }
+  else { message = "Too cold - stay warm indoors" }
+
+  return message;
 }
